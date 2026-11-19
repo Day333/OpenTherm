@@ -80,7 +80,7 @@ The released Therm-FM recipe is deliberately single-GPU: training uses AdamW wit
 
 ## Selected reference results
 
-These paper values record the strongest method family in each track (MAE in kelvin, mean of three runs):
+These paper values record the strongest method family in each track (MAE in kelvin):
 
 | Track | Best method | MAE ↓ | Second-best method | MAE ↓ | Interpretation |
 |---|---|---:|---|---:|---|
