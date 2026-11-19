@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Dataset-free environment and interface smoke test for IC-ThermBench."""
+"""Dataset-free environment and interface smoke test for OpenTherm."""
 
 from __future__ import annotations
 
@@ -77,7 +77,7 @@ def main() -> None:
     if abs(metrics["smoke/rmse"] - 1.0) > 1e-6:
         fail(f"metric sanity check returned RMSE={metrics['smoke/rmse']}, expected 1.0")
 
-    print("IC-ThermBench smoke test passed")
+    print("OpenTherm smoke test passed")
     print(f"  Python   {platform.python_version()}")
     print(f"  PyTorch  {torch.__version__}")
     print(f"  CUDA     {'available' if torch.cuda.is_available() else 'not available (CPU smoke only)'}")

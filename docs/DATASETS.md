@@ -1,14 +1,14 @@
 # Datasets and checkpoint layout
 
-IC-ThermBench separates the paper's capability vocabulary from the stable command-line API:
+OpenTherm separates the paper's capability vocabulary from the stable command-line API:
 
 | Paper scope | CLI token | Role in this release |
 |---|---|---|
-| S1 | — | collected source suite; datasets released, unified evaluator on the way |
-| S2 | `level2` | in-support layout and configuration variation |
-| S3 | `level3` | S2 + material conductivity variation |
-| S4 | `level4` | S3 + ambient and convective-boundary variation |
-| S5 | `level5` | case-disjoint structural-OOD evaluation and adaptation |
+| S1 · Fixed design | — | collected source suite; datasets released, unified evaluator on the way |
+| S2 · Layout | `level2` | within-family placement and orientation variation |
+| S3 · Material | `level3` | S2 + filler-conductivity variation |
+| S4 · Cooling | `level4` | S3 + ambient-temperature and convection variation |
+| S5 · Unseen packages | `level5` | cross-package OOD evaluation and adaptation |
 
 The `level*` tokens are retained for backward compatibility with released archives and checkpoints.
 
@@ -23,13 +23,13 @@ Unpack the S2–S5 data archive at the repository root; the checkpoint archive u
 
 ## Provenance
 
-S1 is an unchanged collection of established source tasks, not a regenerated IC-ThermBench distribution. It follows the [ARO](https://github.com/Mia-WMY/ARO) and [Therm-FM](https://arxiv.org/abs/2605.22663) research line and retains its source grids, simulators, and task-level evaluation. The S1 datasets are released as a separate [Google Drive folder](https://drive.google.com/drive/folders/1WzjpOAgeua03F3iLodHlVbTsRhXn1lMA) rather than being mixed into the S2–S5 archive; a unified S1 evaluator is on the way.
+S1 is an unchanged collection of established source tasks, not a regenerated OpenTherm distribution. It follows the [ARO](https://github.com/Mia-WMY/ARO) and [Therm-FM](https://arxiv.org/abs/2605.22663) research line and retains its source grids, simulators, and task-level evaluation. The S1 datasets are released as a separate [Google Drive folder](https://drive.google.com/drive/folders/1WzjpOAgeua03F3iLodHlVbTsRhXn1lMA) rather than being mixed into the S2–S5 archive; a unified S1 evaluator is on the way.
 
-S2 uses Cases 1–10 and the HotSpot thermal lineage from Qipan Wang *et al.*'s [ATPlace2.5D public package](https://github.com/PKU-IDEA/ATPlace_pub). S3–S5 extend the same case conventions with material, boundary, and structurally held-out support.
+S2 uses Cases 1–10 and the HotSpot thermal lineage from Qipan Wang *et al.*'s [ATPlace2.5D public package](https://github.com/PKU-IDEA/ATPlace_pub). S3–S5 extend the same case conventions with filler-conductivity variation, cooling variation, and held-out package architectures.
 
 ## Data license
 
-The original IC-ThermBench S2–S5 tensors, fixed splits/manifests, and released result records are licensed under [CC BY 4.0](../LICENSE-DATA). Reuse, redistribution, and extensions are welcome with attribution and an indication of changes. S1 and all third-party source material retain their upstream licenses; see the complete [license map](../LICENSES.md).
+The original OpenTherm S2–S5 tensors, fixed splits/manifests, and released result records are licensed under [CC BY 4.0](../LICENSE-DATA). Reuse, redistribution, and extensions are welcome with attribution and an indication of changes. S1 and all third-party source material retain their upstream licenses; see the complete [license map](../LICENSES.md).
 
 ## Dataset files
 
@@ -55,9 +55,9 @@ datasets/
 | `level2` / S2 | 15,000 | `chiplet_power`, `grid_x`, `grid_y` | Cases 1–10 |
 | `level3` / S3 | 15,000 | S2 + `local_thermal_k` | Cases 1–10 |
 | `level4` / S4 | 15,000 | S3 + `ambient_K`, `h_w_m2k`, `r_convec_k_per_w` | Cases 1–10 |
-| `level5` / S5 | 5,000 | same schema as S4 | unseen Cases 11–15 |
+| `level5` / S5 | 5,000 | same schema as S4 | unseen packages, Cases 11–15 |
 
-S2–S4 contain 1,500 samples per represented case. S5 contains 1,000 samples per unseen case and is excluded from standard training.
+S2–S4 contain 1,500 samples per package family. S5 contains 1,000 samples per unseen package and is excluded from standard training.
 
 ## Tensor contract
 
@@ -108,7 +108,7 @@ first 500 samples per case  → adaptation pool; K-shot selects the first K
 last  500 samples per case  → common held-out evaluation set for every K
 ```
 
-Thus `--shots 10` uses 10 samples from each of five unseen systems—50 labels total—with zero overlap with the 2,500-sample holdout.
+Thus `--shots 10` uses 10 samples from each of five unseen packages—50 labels total—with zero overlap with the 2,500-sample holdout.
 
 ## Checkpoints
 
