@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""IC-ThermBench -- a single entry point for the chip steady-state thermal operator
+"""OpenTherm -- a single entry point for the chip steady-state thermal operator
 learning benchmark.
 
     python run.py --model UFNO      --data level2 --task train
@@ -32,7 +32,7 @@ from exp.exp_basic import (MODEL_ZOO, OPERATOR_MODELS, PURE_EVAL,
 
 def parse_args():
     p = argparse.ArgumentParser(
-        description="IC-ThermBench",
+        description="OpenTherm",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=__doc__)
     p.add_argument("--model", required=True, choices=list(MODEL_ZOO),

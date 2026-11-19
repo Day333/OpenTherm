@@ -1,4 +1,4 @@
-name: ic-thermbench
+name: opentherm
 channels:
   - conda-forge
 dependencies:

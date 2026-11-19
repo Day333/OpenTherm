@@ -1,12 +1,15 @@
 cff-version: 1.2.0
 message: "If you use this benchmark, please cite it as below."
-title: "IC-ThermBench: An Open, Progressive Benchmark for Generalizable 2.5D/3D-IC Thermal Learning"
+title: "OpenTherm: A Unified and Progressive Benchmark for 2.5D/3D-IC Thermal Prediction"
 abstract: >-
-  An open thermal-learning benchmark with progressive physical support, unified
-  splits and metrics, and case-disjoint structural out-of-distribution evaluation.
-  The released code evaluates eight convolutional, neural-operator, and PDE
-  foundation-model baselines across four generator-backed scopes and supports
-  training, evaluation, and few-shot adaptation from one entry point.
+  An open benchmark for 2.5D/3D-IC thermal prediction that combines 32,000
+  established 3D-IC samples with 50,000 new HotSpot-generated 2.5D chiplet
+  samples, fixed splits, a common input representation, and shared evaluation
+  tools. Five Generalization Scopes cover fixed-design workload prediction,
+  within-family layout, material, and cooling exploration, and cross-package
+  out-of-distribution transfer with few-shot adaptation. The released code
+  trains, evaluates, and adapts eight model configurations from one entry point.
+  Previously released as IC-ThermBench.
 authors:
   - given-names: David
     family-names: Hang
@@ -18,7 +21,7 @@ authors:
     family-names: Xin
   - given-names: Jacky
     family-names: Wei
-repository-code: "https://github.com/Day333/ThermalBench"
+repository-code: "https://github.com/Day333/OpenTherm"
 url: "https://arxiv.org/abs/2608.23977"
 doi: 10.5281/zenodo.21992816
 identifiers:
@@ -33,5 +36,6 @@ keywords:
   - neural operator
   - thermal simulation
   - 3D-IC
+  - chiplets
   - scientific machine learning
   - out-of-distribution generalization
